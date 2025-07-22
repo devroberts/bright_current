@@ -1,0 +1,22 @@
+#dataTable_wrapper,
+#dataTable_wrapper>tbody,
+#dataTable_wrapper>tbody>tr,
+#dataTable_wrapper>tbody>tr>td {
+    display: block;
+}
+.export-format-radio .form-check {
+    display: flex;
+    align-items: center;
+}
+.data-to-include .form-check {
+    display: flex;
+    align-items: center;
+}
+.scheduling .form-check {
+    display: flex;
+    align-items: center;
+}
+.recent-reports-table thead tr th {
+    background-color: var(--sidebar-bg) !important;
+    color: white !important;
+}
