@@ -1,5 +1,9 @@
 @extends('backend.layouts.master')
 @section('title') {{'System Details'}} @endsection
+
+@section('breadcrumb') System / System Details @endsection
+@section('page-title') System Details @endsection
+
 @section('content')
     @include('backend.partials.alert')
 

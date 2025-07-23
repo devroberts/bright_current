@@ -1,5 +1,9 @@
 @extends('backend.layouts.master')
 @section('title') {{'Reports'}} @endsection
+
+@section('breadcrumb') Pages / Reports @endsection
+@section('page-title') Reports @endsection
+
 @section('content')
     @include('backend.partials.alert')
 

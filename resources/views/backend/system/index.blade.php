@@ -1,13 +1,10 @@
 @extends('backend.layouts.master')
 @section('title') {{'System List'}} @endsection
+
+@section('breadcrumb') System / System List @endsection
+@section('page-title') System List @endsection
+
 @section('content')
-    @include('backend.partials.alert')
-    <div class="page-header d-flex justify-content-end gap-3 mb-24">
-        <a href="{{ route('system.create') }}" class="btn bg-dark text-light text-sm btn-sm py-8 radius-4 d-flex align-items-center" style="padding-left: 21px; padding-right: 12px;">
-            <iconify-icon icon="ic:baseline-plus" class="icon text-xl line-height-1"></iconify-icon>
-            Add New System
-        </a>
-    </div>
 
     <div class="row gy-4">
         <div class="col-12">

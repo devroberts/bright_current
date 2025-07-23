@@ -1,5 +1,9 @@
 @extends('backend.layouts.master')
 @section('title') {{'Settings'}} @endsection
+
+@section('breadcrumb') Pages / Settings @endsection
+@section('page-title') Settings @endsection
+
 @section('content')
     @include('backend.partials.alert')
     <div class="row gy-4">

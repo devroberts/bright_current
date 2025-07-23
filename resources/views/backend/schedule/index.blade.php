@@ -1,5 +1,9 @@
 @extends('backend.layouts.master')
 @section('title') {{'Service Schedules'}} @endsection
+
+@section('breadcrumb') Dashboard / Schedule Service @endsection
+@section('page-title') Service Schedules @endsection
+
 @section('content')
     @include('backend.partials.alert')
     <div class="row gy-4">

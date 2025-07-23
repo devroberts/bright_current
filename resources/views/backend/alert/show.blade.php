@@ -1,5 +1,9 @@
 @extends('backend.layouts.master')
 @section('title') {{'Alert Details'}} @endsection
+
+@section('breadcrumb') Alert / Alert Details @endsection
+@section('page-title') Alert Details @endsection
+
 @section('content')
     @include('backend.partials.alert')
     <div class="page-header d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">

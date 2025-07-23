@@ -12510,7 +12510,7 @@ div.dt-container .dt-paging .dt-paging-button:hover:hover, div.dt-container .dt-
 
 .form-select:focus, .form-select:active, .form-control:focus, .form-control:active, textarea:focus, textarea:active {
   box-shadow: none;
-  border-color: var(--brand) !important;
+  /* border-color: var(--brand) !important; */
   background-color: transparent;
 }
 
@@ -12524,7 +12524,6 @@ div.dt-container .dt-paging .dt-paging-button:hover:hover, div.dt-container .dt-
 }
 
 .form-select.form-select-sm {
-  height: 40px;
   font-size: 0.875rem;
 }
 

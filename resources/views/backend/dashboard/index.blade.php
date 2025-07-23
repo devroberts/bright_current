@@ -1,5 +1,9 @@
 @extends('backend.layouts.master')
 @section('title') {{'Dashboard'}} @endsection
+
+@section('breadcrumb') Pages / Dashboard @endsection
+@section('page-title') Main Dashboard @endsection
+
 @section('content')
 @include('backend.partials.alert')
 <div class="row gy-4">
@@ -20,7 +24,7 @@
                                 <span class="text-secondary-light text-sm fw-semibold">Expected Output</span>
                             </li>
                         </ul>
-                        <select id="periodSelect" class="form-select form-select-sm w-auto border-primary text-secondary-light radius-8">
+                        <select id="periodSelect" class="form-select form-select-sm w-auto border-primary text-secondary-light radius-8" style="padding: 0.25rem 1.5rem !important;">
                             <option value="daily">Daily</option>
                             <option value="weekly">Weekly</option>
                             <option value="monthly">Monthly</option>
@@ -107,10 +111,10 @@
             <div class="card-header">
                 <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
                     <h6 class="fw-bold mb-0" style="font-size: 22px;">Recent Alerts</h6>
-                    <a href="javascript:void(0)" class="text-primary-light d-flex align-items-center gap-1">
+                    <!-- <a href="javascript:void(0)" class="text-primary-light d-flex align-items-center gap-1">
                         View All
                         <iconify-icon icon="solar:alt-arrow-right-linear" class="icon"></iconify-icon>
-                    </a>
+                    </a> -->
                 </div>
             </div>
             <div class="card-body" style="padding: 0 !important">
@@ -128,8 +132,7 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td style="
-  padding: 16px 16px 16px 42px !important;">
+                            <td style="padding: 16px 16px 16px 42px !important;">
                                 <span class="text-secondary-light">BC-2025-0123</span>
                             </td>
                             <td>
@@ -148,8 +151,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="
-  padding: 16px 16px 16px 42px !important;">
+                            <td style="padding: 16px 16px 16px 42px !important; border-radius: 0 !important;">
                                 <span class="text-secondary-light">BC-2025-0123</span>
                             </td>
                             <td>
@@ -163,7 +165,7 @@
                             <td>
                                 <span class="bg-yellow text-black px-16 py-4 radius-12 fw-bold text-sm">SCHEDULING</span>
                             </td>
-                            <td>
+                            <td style="border-radius: 0 !important;">
                                 <span class="text-secondary-light">12.4 kWh</span>
                             </td>
                         </tr>

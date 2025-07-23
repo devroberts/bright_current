@@ -1,5 +1,9 @@
 @extends('backend.layouts.master')
 @section('title') {{'Alert List'}} @endsection
+
+@section('breadcrumb') Dashboard / Alerts @endsection
+@section('page-title') Alert List @endsection
+
 @section('content')
     @include('backend.partials.alert')
 

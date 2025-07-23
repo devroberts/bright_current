@@ -113,14 +113,24 @@
     <div class="navbar-header">
         <div class="row align-items-center justify-content-between">
             <div class="col-auto">
-                <div class="d-flex d-none flex-wrap align-items-center gap-4">
-                    <button type="button" class="sidebar-toggle">
+                <div class="d-flex flex-wrap align-items-center gap-4">
+                    <button type="button" class="sidebar-toggle d-none">
                         <iconify-icon icon="heroicons:bars-3-solid" class="icon text-2xl non-active"></iconify-icon>
                         <iconify-icon icon="iconoir:arrow-right" class="icon text-2xl active"></iconify-icon>
                     </button>
-                    <button type="button" class="sidebar-mobile-toggle">
+                    <button type="button" class="sidebar-mobile-toggle d-none">
                         <iconify-icon icon="heroicons:bars-3-solid" class="icon"></iconify-icon>
                     </button>
+                    
+                    {{-- Page Header Content --}}
+                    <div>
+                        {{-- Breadcrumb --}}
+                        <nav class="mb-2">
+                            <span class="text-secondary-light text-sm">@yield('breadcrumb', 'Pages / Dashboard')</span>
+                        </nav>
+                        {{-- Page Title --}}
+                        <h2 class="fw-bold mb-0 text-primary-light" style="font-size: 1.5rem;">@yield('page-title', 'Main Dashboard')</h2>
+                    </div>
                 </div>
             </div>
             <div class="col-auto">
