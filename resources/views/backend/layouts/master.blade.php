@@ -54,7 +54,7 @@
     </button>
     <div>
         <a href="index.html" class="sidebar-logo">
-            <img src="{{ asset('assets/images/logo.png') }}" alt="site logo" class="light-logo">
+            <img src="{{ asset('assets/images/logo.png') }}" alt="site logo" class="light-logo" style="width: 209px; height: 80px;">
             <img src="{{ asset('assets/images/logo.png') }}" alt="site logo" class="dark-logo">
             <img src="{{ asset('assets/images/logo-icon.png') }}" alt="site logo" class="logo-icon">
         </a>
@@ -97,17 +97,15 @@
                     <span>Settings</span>
                 </a>
             </li>
-
-            <li>
-                <a href="javascript:void(0)" onclick="document.getElementById('logout-form').submit();" class="btn color-bg-brand text-dark text-sm d-block px-8 py-8 radius-4 mt-200">
-                    Logout
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-            </li>
-
         </ul>
+        <div>
+            <a href="javascript:void(0)" onclick="document.getElementById('logout-form').submit();" class="btn color-bg-brand text-dark text-sm d-block px-8 py-8 radius-4">
+                Logout
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </div>
     </div>
 </aside>
 
@@ -179,7 +177,7 @@
         </div>
     </div>
 
-    <footer class="d-footer">
+    <!-- <footer class="d-footer">
         <div class="row align-items-center justify-content-between">
             <div class="col-auto">
                 <p class="mb-0">© 2025 Bright Current. All Rights Reserved.</p>
@@ -188,7 +186,7 @@
                 <p class="mb-0">Made by <span class="text-primary-600">Sly Nerds</span></p>
             </div>
         </div>
-    </footer>
+    </footer> -->
 </main>
 
 <!-- jQuery library js -->

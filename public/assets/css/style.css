@@ -271,8 +271,10 @@
   --cyan: #00B8F2;
   --indigo: #7F27FF;
   --purple: #8252E9;
-  --red: #E30A0A;
-  --yellow: #F4941E;
+  /* --red: #E30A0A; */
+  --red: #FF0000;
+  /* --yellow: #F4941E; */
+  --yellow: #FFFF00;
   --orange: #F86624;
   --pink: #DE3ACE;
   --primary-light: rgba(72, 127, 255, 0.15);
@@ -283,6 +285,8 @@
   --yellow-light-white: rgba(255, 159, 41, 0.25);
   --purple-light-white: rgba(132, 90, 223, 0.25);
   --pink-light-white: rgba(250, 54, 230, 0.25);
+  --card-light-background: #F4F7FE;
+  --card-light-border: #E0E5F2;
 
 
   --base: #fff;
@@ -293,7 +297,9 @@
   --sidebar-bg: #0C214C;
   --sidebar-text: #A3AED0;
   --bg-color: var(--neutral-50);
-  --text-primary-light: var(--neutral-900);
+  /* --text-primary-light: var(--neutral-900); */
+  --text-primary-light: #2B3674;
+  --text-primary-semi-light: #707EAE;
   --text-light: var(--base);
   --text-secondary-light: #0C214C;
   --text-secondary-dark: var(--neutral-300);
@@ -377,7 +383,7 @@ html {
 }
 
 body {
-  background-color: var(--bg-color);
+  background-color: white;
   color: var(--text-secondary-light);
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
@@ -1495,6 +1501,10 @@ th {
 
 .text-primary-light {
   color: var(--text-primary-light) !important;
+}
+
+.text-primary-semi-light {
+  color: var(--text-primary-semi-light) !important;
 }
 
 .text-secondary-light {
@@ -6809,6 +6819,10 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--border-color) !important;
 }
 
+.border-primary {
+  border: 1px solid #2B3674 !important;
+}
+
 .border-start {
   border-inline-start: 1px solid var(--border-color) !important;
 }
@@ -11929,14 +11943,16 @@ h1, h2, h3, h4, h5, h6 {
   border-spacing: 0;
   border-collapse: separate;
   border: 1px solid var(--neutral-200);
-  border-radius: 8px;
+  /* border-radius: 8px; */
   min-width: max-content;
   vertical-align: middle;
 }
 
 .bordered-table thead tr th {
-  background-color: var(--neutral-50) !important;
-  border-bottom: 1px solid var(--neutral-200) !important;
+  /* background-color: var(--neutral-50) !important; */
+  background-color: var(--card-light-background) !important;
+  /* border-bottom: 1px solid var(--neutral-200) !important; */
+  border-bottom: 1px solid #707EAE !important;
   color: var(--text-primary-light) !important;
   padding: 16px !important;
   font-size: 1rem;
@@ -11978,9 +11994,12 @@ h1, h2, h3, h4, h5, h6 {
 .bordered-table tbody tr td {
   color: var(--text-secondary-light);
   padding: 16px !important;
-  border-bottom: 1px solid var(--neutral-200);
-  background-color: var(--white);
+  /* border-bottom: 1px solid var(--neutral-200); */
+  border-bottom: 1px solid #707EAE !important;
+  /* background-color: var(--white); */
+  background-color: var(--card-light-background);
   vertical-align: middle;
+  font-weight: 600;
 }
 
 .table-py-8 tbody tr td, .table-py-8 thead tr th {
@@ -12389,8 +12408,10 @@ div.dt-container .dt-paging .dt-paging-button:hover:hover, div.dt-container .dt-
 .form-select, .form-control, textarea {
   border: 1px solid var(--input-form-light);
   color: var(--text-primary-light) !important;
-  background-color: var(--white);
+  /* background-color: var(--white); */
+  background-color: var(--card-light-background);
   padding: 0.5625rem 1.25rem;
+  font-weight: bold;
 }
 
 .form-select::placeholder, .form-control::placeholder, textarea::placeholder {
@@ -12866,7 +12887,8 @@ select option {
 /* === form css end === */
 /* === card css start === */
 .card {
-  background-color: var(--white);
+  /* background-color: var(--white); */
+  background-color: var(--card-light-background);
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -12876,13 +12898,15 @@ select option {
   border: none;
   position: initial;
   color: var(--text-secondary-light);
+  border: 1px solid var(--card-light-border);
 }
 
 .card .card-header {
-  background-color: var(--white);
-  padding: 0.875rem 1.5rem;
+  background-color: var(--card-light-background);
+  padding: 26px 24px 18px;
   border-color: var(--border-color);
   color: var(--text-secondary-light);
+  border-bottom-color: #707EAE;
 }
 
 .card .card-title {
@@ -12892,7 +12916,7 @@ select option {
 }
 
 .card .card-body {
-  padding: 0.875rem 1.5rem;
+  padding: 21px 29px;
   color: var(--text-secondary-light);
 }
 
@@ -15079,11 +15103,11 @@ td.fc-header-center {
 /* === trail card end === */
 /* === navbar css start === */
 .navbar-header {
-  height: 4.5rem;
+  /* height: 4.5rem; */
   background-color: var(--white);
   position: sticky;
   top: 0;
-  padding: 1rem 1.5rem;
+  padding: 40px 1.5rem 1rem;
   z-index: 2;
 }
 
@@ -15141,13 +15165,14 @@ td.fc-header-center {
 .navbar-search input {
   width: 24.25rem;
   height: 2.5rem;
-  background-color: var(--neutral-50);
-  border: 1px solid var(--input-form-light);
-  border-radius: 0.5rem;
-  -webkit-border-radius: 0.5rem;
+  /* background-color: var(--neutral-50); */
+  background-color: var(--card-light-background);
+  /* border: 1px solid var(--input-form-light);
+  border-radius: 0.5rem; */
+  /* -webkit-border-radius: 0.5rem;
   -moz-border-radius: 0.5rem;
   -ms-border-radius: 0.5rem;
-  -o-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem; */
   padding-block: 0.3125rem;
   padding-inline-start: 2.625rem;
   padding-inline-end: 1.25rem;
@@ -15205,7 +15230,7 @@ td.fc-header-center {
 @media (min-width: 1200px) {
   .sidebar {
     inset-inline-start: 0;
-    width: 13.75rem;
+    width: 290px;
   }
 }
 
@@ -15324,8 +15349,8 @@ td.fc-header-center {
 }
 
 .sidebar-logo {
-  height: 4.5rem;
-  padding: 0.875rem 1rem;
+  /* height: 4.5rem; */
+  padding: 37px 53px 13px 28px;
   border-inline-end: 1px solid var(--neutral-200);
   border-block-end: 1px solid var(--neutral-200);
   display: flex;
@@ -15334,7 +15359,7 @@ td.fc-header-center {
 }
 
 .sidebar-logo img {
-  max-height: 3.4375rem;
+  /* max-height: 3.4375rem; */
 }
 
 .sidebar-logo img.dark-logo {
@@ -15346,8 +15371,11 @@ td.fc-header-center {
 }
 
 .sidebar-menu-area {
-  height: calc(100vh - 72px);
-  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 131px);
+  padding: 38px 31px;
   overflow-y: auto;
   border-inline-end: 1px solid var(--neutral-200);
 }
@@ -15431,7 +15459,7 @@ td.fc-header-center {
 }
 
 .sidebar-menu li a {
-  padding: 0.625rem 0.75rem;
+  padding: 0.75rem 0;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -15523,7 +15551,7 @@ td.fc-header-center {
 
 @media (min-width: 1200px) {
   .dashboard-main {
-    margin-inline-start: 13.75rem;
+    margin-inline-start: 290px;
   }
 }
 @media (min-width: 1650px) {

@@ -2,31 +2,30 @@
 @section('title') {{'Dashboard'}} @endsection
 @section('content')
 @include('backend.partials.alert')
-<div class="page-header d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
-    <h4 class="fw-semibold mb-0">Dashboard</h4>
-</div>
 <div class="row gy-4">
 {{--        Performance chart--}}
     <div class="col-12">
         <div class="card h-100">
             <div class="card-body">
                 <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
-                    <h6 class="mb-2 fw-bold text-lg mb-0">System Performance Overview</h6>
-                    <ul class="d-flex flex-wrap align-items-center gap-3">
-                        <li class="d-flex align-items-center gap-2">
-                            <span class="w-12-px h-12-px rounded-circle bg-primary-600"></span>
-                            <span class="text-secondary-light text-sm fw-semibold">Total Production</span>
-                        </li>
-                        <li class="d-flex align-items-center gap-2">
-                            <span class="w-12-px h-12-px rounded-circle bg-yellow"></span>
-                            <span class="text-secondary-light text-sm fw-semibold">Expected Output</span>
-                        </li>
-                    </ul>
-                    <select id="periodSelect" class="form-select form-select-sm w-auto bg-base border text-secondary-light radius-8">
-                        <option value="daily">Daily</option>
-                        <option value="weekly">Weekly</option>
-                        <option value="monthly">Monthly</option>
-                    </select>
+                    <h6 class="mb-2 fw-bold text-2xl">System Performance Overview</h6>
+                    <div class="d-flex justify-content-center gap-36 align-items-center">
+                        <ul class="d-flex flex-wrap align-items-center gap-24">
+                            <li class="d-flex align-items-center gap-2">
+                                <span class="w-12-px h-12-px rounded-circle" style="background-color: #2B3674"></span>
+                                <span class="text-secondary-light text-sm fw-semibold">Total Production</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-2">
+                                <span class="w-12-px h-12-px rounded-circle" style="background-color: #D9D9D9"></span>
+                                <span class="text-secondary-light text-sm fw-semibold">Expected Output</span>
+                            </li>
+                        </ul>
+                        <select id="periodSelect" class="form-select form-select-sm w-auto border-primary text-secondary-light radius-8">
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="mt-40">
                     <div id="systemPerformanceAreaChart" class="margin-16-minus"></div>
@@ -37,14 +36,14 @@
 
 {{--        Quick links--}}
     <div class="col-12">
-        <h6 class="">Quick Links</h6>
+        <h4 class="mb-16">Quick Links</h6>
         <div class="row gy-4">
             <div class="col-xxl-4">
                 <div class="card">
                     <div class="card-body">
-                        <div class="fw-semibold">Active Alerts</div>
-                        <h4>12</h4>
-                        <div>4 new since yesterday</div>
+                        <div class="fw-semibold text-primary-semi-light">Active Alerts</div>
+                        <h2>12</h4>
+                        <div class="text-primary-semi-light"><i class="ri-arrow-up-line text-xxl me-14 w-auto"></i> 4 new since yesterday</div>
                         <a href="/dashboard/alert" class="color-brand py-4">View all alerts</a>
                     </div>
                 </div>
@@ -56,7 +55,7 @@
     <div class="col-12">
         <div class="row gy-4 text-center">
             <div class="col-lg-3 col-sm-6">
-                <div class="card px-24 py-36 shadow-none radius-12 border h-100 bg-gradient-start-3">
+                <div class="card px-24 py-36 shadow-none radius-12 border" style="height: 134px;">
                     <a href="/dashboard/service-schedules">
                         <div class="card-body p-0">
                             <i class="ri-calendar-todo-line text-xxl me-14 w-auto"></i>
@@ -67,7 +66,7 @@
             </div>
 
             <div class="col-lg-3 col-sm-6">
-                <div class="card px-24 py-36 shadow-none radius-12 border h-100 bg-gradient-start-4">
+                <div class="card px-24 py-36 shadow-none radius-12 border" style="height: 134px;">
                     <a href="/dashboard/reports">
                         <div class="card-body p-0">
                             <i class="ri-upload-2-line text-xxl me-14 w-auto"></i>
@@ -78,7 +77,7 @@
             </div>
 
             <div class="col-lg-3 col-sm-6">
-                <div class="card px-24 py-36 shadow-none radius-12 border h-100 bg-gradient-start-5">
+                <div class="card px-24 py-36 shadow-none radius-12 border" style="height: 134px;">
                     <a href="/dashboard/system">
                         <div class="card-body p-0">
                             <i class="ri-add-fill text-xxl me-14 w-auto"></i>
@@ -89,7 +88,7 @@
             </div>
 
             <div class="col-lg-3 col-sm-6">
-                <div class="card px-24 py-36 shadow-none radius-12 border h-100 bg-gradient-start-2">
+                <div class="card px-24 py-36 shadow-none radius-12 border" style="height: 134px;">
                     <a href="/dashboard/settings">
                         <div class="card-body p-0">
                             <i class="ri-user-add-line text-xxl me-14 w-auto"></i>
@@ -104,7 +103,7 @@
 
     {{--Recent Alerts--}}
     <div class="col-xxl-12">
-        <div class="card h-100">
+        <div class="card h-100" style="padding-bottom: 40px;">
             <div class="card-header">
                 <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
                     <h6 class="mb-2 fw-bold text-lg mb-0">Recent Alerts</h6>
@@ -114,7 +113,7 @@
                     </a>
                 </div>
             </div>
-            <div class="card-body p-24">
+            <div class="card-body" style="padding: 0 !important">
                 <div class="table-responsive scroll-sm">
                     <table class="table bordered-table mb-0">
                         <thead>
@@ -136,11 +135,30 @@
                             </td>
                             <td>
                                 <div class="text-secondary-light">
-                                    <span class="bg-orange text-white px-16 py-4 radius-4 fw-medium text-sm">Placeholder</span>
+                                    <span class="bg-red text-white px-16 py-4 radius-12 fw-bold text-sm">Placeholder</span>
                                 </div>
                             </td>
                             <td>
-                                <span class="bg-cyan text-white px-16 py-4 radius-4 fw-medium text-sm">SCHEDULING</span>
+                                <span class="bg-yellow text-black px-16 py-4 radius-12 fw-bold text-sm">SCHEDULING</span>
+                            </td>
+                            <td>
+                                <span class="text-secondary-light">12.4 kWh</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="text-secondary-light">BC-2025-0123</span>
+                            </td>
+                            <td>
+                                <span class="text-secondary-light">Oakland, CA</span>
+                            </td>
+                            <td>
+                                <div class="text-secondary-light">
+                                    <span class="bg-red text-white px-16 py-4 radius-12 fw-bold text-sm">Placeholder</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="bg-yellow text-black px-16 py-4 radius-12 fw-bold text-sm">SCHEDULING</span>
                             </td>
                             <td>
                                 <span class="text-secondary-light">12.4 kWh</span>
@@ -226,7 +244,7 @@
                     },
                     parentHeightOffset: 0,
                 },
-                colors: ['#3b82f6', '#f59e0b'], // Matches your dot colors
+                colors: ['#2B3674', '#D9D9D9'], // Matches your dot colors
                 dataLabels: {
                     enabled: false
                 },
