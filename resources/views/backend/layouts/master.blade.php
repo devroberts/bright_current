@@ -7,6 +7,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title', 'Solar Monitoring - Bright Current')</title>
+    
+    <!-- Theme initialization script (must be before any CSS) -->
+    <script>
+        // Initialize theme before page loads to prevent flash
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
     <link
         rel="icon"
         type="image/png"

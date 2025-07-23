@@ -13,8 +13,7 @@
                     <table class="table bordered-table mb-0" id="dataTable" data-page-length='10' style="border: 1px solid #707EAE; width: 100% !important; min-width: auto !important;">
                         <thead>
                         <tr>
-                            <th scope="col" style="
-  padding: 16px 16px 16px 34px !important;">Customer</th>
+                            <th scope="col" style="padding: 16px 16px 16px 34px !important;">Customer</th>
                             <th scope="col">Manufacturer</th>
                             <th scope="col">System ID</th>
                             <th scope="col">Status</th>
@@ -27,8 +26,7 @@
                         <tbody>
                         @foreach ($systems as $system)
                             <tr>
-                                <td style="
-  padding: 16px 16px 16px 27px !important;">
+                                <td style="padding: 16px 16px 16px 27px !important;">
                                     <div class="d-flex align-items-center gap-2">
                                         <i class="{{ $system->customer_type === 'Residential' ? 'ri-home-3-line' : 'ri-file-list-line' }} text-xl me-8 d-flex w-32-px h-32-px bg-primary-light rounded-circle d-inline-flex align-items-center justify-content-center"></i>
                                         <div class="flex-grow-1">
@@ -59,14 +57,13 @@
                                     </a>
                                     {{-- Corrected Edit Link --}}
                                     <a href="{{ route('system.edit', $system->id) }}" class="strong text-xxl text-primary-light">
-                                        <iconify-icon icon="solar:logout-2-outline"></iconify-icon>
+                                        <iconify-icon icon="lucide:edit"></iconify-icon>
                                     </a>
                                     <a href="javascript:void(0)" class="strong text-xxl text-primary-light" data-bs-toggle="modal" data-bs-target="#deleteModal{{$system->id}}">
-                                        <iconify-icon icon="iconamoon:menu-kebab-vertical-bold"></iconify-icon>
+                                        <iconify-icon icon="mingcute:delete-2-line"></iconify-icon>
                                     </a>
                                 </td>
                             </tr>
-
                             <div class="modal fade" id="deleteModal{{ $system->id }}" tabindex="-1" role="dialog" aria-hidden="false">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -100,7 +97,8 @@
 @push('script')
     <script>
         let table = new DataTable('#dataTable', {
-            //scrollX: true
+            // scrollX: true,
+            // responsive: false
         });
     </script>
 @endpush

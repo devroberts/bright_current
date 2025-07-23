@@ -150,7 +150,7 @@
                     <div class="card-body p-20">
                         <div class="d-flex align-items-center justify-content-between mb-24">
                             <div class="d-flex align-items-center gap-3">
-                                <div class="w-40-px h-40-px bg-text-primary-light text-xl d-flex align-items-center justify-content-center text-white" style="border-radius: 8px;">
+                                <div class="w-40-px h-40-px api-icon-container text-xl d-flex align-items-center justify-content-center text-white" style="border-radius: 8px;">
                                     <iconify-icon icon="bx:plug" class="text-2xl"></iconify-icon>
                                 </div>
                                 <h6 class="mb-0 fw-bold text-lg">Inverter API</h6>
@@ -172,7 +172,7 @@
                     <div class="card-body p-20">
                         <div class="d-flex align-items-center justify-content-between mb-24">
                             <div class="d-flex align-items-center gap-3">
-                                <div class="w-40-px h-40-px bg-text-primary-light text-xl d-flex align-items-center justify-content-center text-white" style="border-radius: 8px;">
+                                <div class="w-40-px h-40-px api-icon-container text-xl d-flex align-items-center justify-content-center text-white" style="border-radius: 8px;">
                                     <iconify-icon icon="material-symbols:call-outline" class="text-2xl"></iconify-icon>
                                 </div>
                                 <h6 class="mb-0 fw-bold text-lg">HouseCall API</h6>
@@ -194,7 +194,7 @@
                     <div class="card-body p-20">
                         <div class="d-flex align-items-center justify-content-between mb-24">
                             <div class="d-flex align-items-center gap-3">
-                                <div class="w-40-px h-40-px bg-text-primary-light text-xl d-flex align-items-center justify-content-center text-white" style="border-radius: 8px;">
+                                <div class="w-40-px h-40-px api-icon-container text-xl d-flex align-items-center justify-content-center text-white" style="border-radius: 8px;">
                                     <iconify-icon icon="material-symbols:cloud-outline" class="text-2xl"></iconify-icon>
                                 </div>
                                 <h6 class="mb-0 fw-bold text-lg">Weather API</h6>
@@ -347,9 +347,9 @@
         <div class="col-xl-12">
             <div class="d-flex justify-content-between align-items-end mb-3">
                 <h5 class="fw-bold text-lg mb-0" style="padding-left: 13px">Notification Preferences</h5>
-                <button type="submit" class="btn bg-text-primary-light text-white text-sm px-24 py-12 radius-8 d-flex align-items-center fw-semibold">
+                <button type="submit" class="btn btn-primary-theme text-sm px-24 py-12 radius-8 d-flex align-items-center fw-semibold">
                     Save Changes
-            </button>
+                </button>
             </div>
             <div class="card" style="border-radius: 12px;">
                 <div class="card-body p-24">

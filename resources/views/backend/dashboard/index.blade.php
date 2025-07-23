@@ -122,8 +122,7 @@
                     <table class="table bordered-table mb-0">
                         <thead>
                         <tr>
-                            <th scope="col" style="
-  padding: 16px 16px 16px 42px !important;">SYSTEM ID</th>
+                            <th scope="col" style="padding: 16px 16px 16px 42px !important;">SYSTEM ID</th>
                             <th scope="col">LOCATION</th>
                             <th scope="col">SYSTEM STATUS</th>
                             <th scope="col">STATUS UPDATE</th>

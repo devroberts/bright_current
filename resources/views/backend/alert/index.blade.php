@@ -221,19 +221,19 @@
                         <h6 class="fw-bold text-xxl mb-0">Alert Frequency</h6>
                         <ul class="nav nav-pills-simple nav-pills-simple-sm" id="pills-tab" role="tablist" style="gap: 10px;">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="pills-30-days-tab" data-bs-toggle="pill" data-bs-target="#pills-30-days" type="button" role="tab" aria-controls="pills-30-days" aria-selected="true" style="background: #0C214C; color: white; font-weight: bold; padding: 5px 24px; border-radius: 8px;">30 Days</button>
+                                <button class="nav-link active fw-bold px-24 py-8 radius-8" id="pills-30-days-tab" data-bs-toggle="pill" data-bs-target="#pills-30-days" type="button" role="tab" aria-controls="pills-30-days" aria-selected="true">30 Days</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="pills-90-days-tab" data-bs-toggle="pill" data-bs-target="#pills-90-days" type="button" role="tab" aria-controls="pills-90-days" aria-selected="false" style="background: #A3AED0; color: #2B3674; font-weight: bold; padding: 5px 24px; border-radius: 8px;">90 Days</button>
+                                <button class="nav-link fw-bold px-24 py-8 radius-8" id="pills-90-days-tab" data-bs-toggle="pill" data-bs-target="#pills-90-days" type="button" role="tab" aria-controls="pills-90-days" aria-selected="false">90 Days</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="pills-1-year-tab" data-bs-toggle="pill" data-bs-target="#pills-1-year" type="button" role="tab" aria-controls="pills-1-year" aria-selected="false" style="background: #707EAE; color: white; font-weight: bold; padding: 5px 24px; border-radius: 8px;">1 Year</button>
+                                <button class="nav-link fw-bold px-24 py-8 radius-8" id="pills-1-year-tab" data-bs-toggle="pill" data-bs-target="#pills-1-year" type="button" role="tab" aria-controls="pills-1-year" aria-selected="false">1 Year</button>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="card-body p-24" style="padding-top: 0 !important;">
-                    <div class="tab-content" id="pills-tabContent" style="background-color: white;">
+                    <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-30-days" role="tabpanel" aria-labelledby="pills-30-days-tab" tabindex="0">
                             <div id="alertFrequencyChart"></div>
                         </div>
