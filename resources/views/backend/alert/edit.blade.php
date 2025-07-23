@@ -6,9 +6,8 @@
 
 @section('content')
     @include('backend.partials.alert')
-    <div class="page-header d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
-        <h4 class="fw-semibold mb-0">Edit Alert</h4>
-        <a href="{{ route('alert.index') }}" class="btn btn-primary-100 text-primary-600 btn-sm px-8 py-8 radius-4 d-flex align-items-center">
+    <div class="page-header d-flex flex-wrap align-items-center justify-content-end gap-3 mb-24">
+        <a href="{{ route('alert.index') }}" class="btn bg-dark text-light text-sm btn-sm px-8 py-8 radius-4 d-flex align-items-center">
             <iconify-icon icon="ic:baseline-arrow-left" class="icon text-xl line-height-1"></iconify-icon>
             Back to Alert List
         </a>

@@ -7,13 +7,13 @@
 @section('content')
     @include('backend.partials.alert')
     <div class="page-header d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
-        <h4 class="fw-semibold mb-0">Alert Details: {{ $alert->alert_type }}</h4>
+        <h4 class="fw-semibold mb-0">{{ $alert->alert_type }}</h4>
         <div class="d-flex align-items-center gap-2">
-            <a href="{{ route('alert.index') }}" class="btn btn-primary-100 text-primary-600 btn-sm px-8 py-8 radius-4 d-flex align-items-center">
+            <a href="{{ route('alert.index') }}" class="btn bg-dark text-light text-sm btn-sm px-8 py-8 radius-4 d-flex align-items-center">
                 <iconify-icon icon="ic:baseline-arrow-left" class="icon text-xl line-height-1"></iconify-icon>
                 Back to Alert List
             </a>
-            <a href="{{ route('alert.edit', $alert->id) }}" class="btn btn-primary-100 text-primary-600 btn-sm px-8 py-8 radius-4 d-flex align-items-center">
+            <a href="{{ route('alert.edit', $alert->id) }}" class="btn bg-dark text-light text-sm btn-sm px-8 py-8 radius-4 d-flex align-items-center">
                 <iconify-icon icon="lucide:edit" class="icon text-xl line-height-1"></iconify-icon>
                 Edit Alert
             </a>

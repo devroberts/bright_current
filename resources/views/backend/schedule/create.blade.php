@@ -1,11 +1,10 @@
 @extends('backend.layouts.master')
 @section('title') {{'Add Service Schedule'}} @endsection
-@section('content')
-    @include('backend.partials.alert')
-    <div class="page-header d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
-        <h4 class="fw-semibold mb-0">Add New Service Schedule</h4>
-    </div>
 
+@section('breadcrumb') Schedules / Add Service Schedule @endsection
+@section('page-title') Add Service Schedule @endsection
+
+@section('content')
     <div class="row gy-4">
         {{-- Left Column: Add New Schedule Form (now takes 8/12 columns on large screens) --}}
         <div class="col-xl-12">

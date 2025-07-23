@@ -1,11 +1,11 @@
 @extends('backend.layouts.master')
 @section('title') {{'Edit Service Schedule'}} @endsection
+
+@section('breadcrumb') Schedules / Edit Service Schedule @endsection
+@section('page-title') Edit Service Schedule @endsection
+
 @section('content')
     @include('backend.partials.alert')
-    <div class="page-header d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
-        <h4 class="fw-semibold mb-0">Edit Service Schedule</h4>
-    </div>
-
     <div class="row gy-4">
         <div class="col-xl-12">
             <div class="card">
