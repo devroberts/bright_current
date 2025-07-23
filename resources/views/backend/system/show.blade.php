@@ -86,11 +86,11 @@
             <div class="card h-100">
                 <div class="card-header">
                     <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
-                        <h6 class="mb-2 fw-bold text-lg mb-0">Alert History</h6>
+                        <h6 class="fw-bold text-lg mb-0">Alert History</h6>
                         <a href="{{ route('alert.index', ['system_keyword' => $system->system_id]) }}" class="btn-text text-primary-600">View All</a>
                     </div>
                 </div>
-                <div class="card-body p-24">
+                <div class="card-body" style="padding: 0 !important;">
                     <div class="table-responsive scroll-sm">
                         <table class="table bordered-table mb-0">
                             <thead>
@@ -139,7 +139,7 @@
                         {{-- <a href="#" class="btn-text text-primary-600">View All</a> --}}
                     </div>
                 </div>
-                <div class="card-body p-24">
+                <div class="card-body" style="padding: 0 !important">
                     <div class="table-responsive scroll-sm">
                         <table class="table bordered-table mb-0">
                             <thead>

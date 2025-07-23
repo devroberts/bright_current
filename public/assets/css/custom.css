@@ -16,7 +16,3 @@
     display: flex;
     align-items: center;
 }
-.recent-reports-table thead tr th {
-    background-color: var(--sidebar-bg) !important;
-    color: white !important;
-}

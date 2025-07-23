@@ -2,9 +2,8 @@
 @section('title') {{'System List'}} @endsection
 @section('content')
     @include('backend.partials.alert')
-    <div class="page-header d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
-        <h4 class="fw-semibold mb-0">System List</h4>
-        <a href="{{ route('system.create') }}" class="btn bg-dark text-light text-sm btn-sm px-8 py-8 radius-4 d-flex align-items-center">
+    <div class="page-header d-flex justify-content-end gap-3 mb-24">
+        <a href="{{ route('system.create') }}" class="btn bg-dark text-light text-sm btn-sm py-8 radius-4 d-flex align-items-center" style="padding-left: 21px; padding-right: 12px;">
             <iconify-icon icon="ic:baseline-plus" class="icon text-xl line-height-1"></iconify-icon>
             Add New System
         </a>
@@ -12,12 +11,13 @@
 
     <div class="row gy-4">
         <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <table class="table bordered-table mb-0" id="dataTable" data-page-length='10'>
+            <div class="card basic-data-table">
+                <div class="card-body" style="padding: 0 !important;">
+                    <table class="table bordered-table mb-0" id="dataTable" data-page-length='10' style="border: 1px solid #707EAE; width: 100% !important; min-width: auto !important;">
                         <thead>
                         <tr>
-                            <th scope="col">Customer</th>
+                            <th scope="col" style="
+  padding: 16px 16px 16px 34px !important;">Customer</th>
                             <th scope="col">Manufacturer</th>
                             <th scope="col">System ID</th>
                             <th scope="col">Status</th>
@@ -30,12 +30,13 @@
                         <tbody>
                         @foreach ($systems as $system)
                             <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <i class="{{ $system->customer_type === 'residential' ? 'ri-home-3-line' : 'ri-file-list-line' }} text-xxl me-8 d-flex"></i>
+                                <td style="
+  padding: 16px 16px 16px 27px !important;">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <i class="{{ $system->customer_type === 'Residential' ? 'ri-home-3-line' : 'ri-file-list-line' }} text-xl me-8 d-flex w-32-px h-32-px bg-primary-light rounded-circle d-inline-flex align-items-center justify-content-center"></i>
                                         <div class="flex-grow-1">
-                                            <h6 class="text-md mb-0">{{ $system->customer_name }}</h6>
-                                            <span class="text-sm text-secondary-light fw-medium">{{ $system->customer_type }}</span>
+                                            <h6 class="text-md mb-0 strong">{{ $system->customer_name }}</h6>
+                                            <span class="text-sm text-primary-semi-light fw-medium">{{ $system->customer_type }}</span>
                                         </div>
                                     </div>
                                 </td>
@@ -43,28 +44,28 @@
                                 <td>{{ $system->system_id }}</td>
                                 <td>
                                     @if ($system->status === 'Active')
-                                        <span class="bg-success text-white px-16 py-4 radius-4 fw-medium text-sm">{{ $system->status }}</span>
+                                        <span class="bg-success text-white px-16 py-4 radius-12 fw-bold text-sm">{{ $system->status }}</span>
                                     @elseif ($system->status === 'Warning')
-                                        <span class="bg-warning text-dark px-16 py-4 radius-4 fw-medium text-sm">{{ $system->status }}</span>
+                                        <span class="bg-red text-white px-16 py-4 radius-12 fw-bold text-sm">{{ $system->status }}</span>
                                     @elseif ($system->status === 'Critical')
-                                        <span class="bg-danger text-dark px-16 py-4 radius-4 fw-medium text-sm">{{ $system->status }}</span>
+                                        <span class="bg-red text-white px-16 py-4 radius-12 fw-bold text-sm">{{ $system->status }}</span>
                                     @else
-                                        <span class="bg-secondary text-white px-16 py-4 radius-4 fw-medium text-sm">{{ $system->status }}</span>
+                                        <span class="bg-yellow text-black px-16 py-4 radius-12 fw-bold text-sm">{{ $system->status }}</span>
                                     @endif
                                 </td>
                                 <td>{{ number_format(rand(0, 100) / 10, 1) }} kWh</td>
                                 <td>{{ number_format(rand(0, 100) / 10, 1) }} kWh</td>
                                 <td>{{ $system->last_seen ? $system->last_seen->diffForHumans() : 'N/A' }}</td>
                                 <td>
-                                    <a href="{{ route('system.show', $system->id) }}" class="w-32-px h-32-px bg-primary-light text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center">
+                                    <a href="{{ route('system.show', $system->id) }}" class="strong text-xxl text-primary-light">
                                         <iconify-icon icon="iconamoon:eye-light"></iconify-icon>
                                     </a>
                                     {{-- Corrected Edit Link --}}
-                                    <a href="{{ route('system.edit', $system->id) }}" class="w-32-px h-32-px bg-success-focus text-success-main rounded-circle d-inline-flex align-items-center justify-content-center">
-                                        <iconify-icon icon="lucide:edit"></iconify-icon>
+                                    <a href="{{ route('system.edit', $system->id) }}" class="strong text-xxl text-primary-light">
+                                        <iconify-icon icon="solar:logout-2-outline"></iconify-icon>
                                     </a>
-                                    <a href="javascript:void(0)" class="w-32-px h-32-px bg-danger-focus text-danger-main rounded-circle d-inline-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#deleteModal{{$system->id}}">
-                                        <iconify-icon icon="mingcute:delete-2-line"></iconify-icon>
+                                    <a href="javascript:void(0)" class="strong text-xxl text-primary-light" data-bs-toggle="modal" data-bs-target="#deleteModal{{$system->id}}">
+                                        <iconify-icon icon="iconamoon:menu-kebab-vertical-bold"></iconify-icon>
                                     </a>
                                 </td>
                             </tr>

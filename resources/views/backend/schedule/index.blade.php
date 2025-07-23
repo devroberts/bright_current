@@ -2,28 +2,23 @@
 @section('title') {{'Service Schedules'}} @endsection
 @section('content')
     @include('backend.partials.alert')
-    <div class="page-header d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
-        <h4 class="fw-semibold mb-0">Service Schedule List</h4>
-        <a href="{{ route('service-schedules.create') }}" class="btn bg-dark text-light text-sm btn-sm px-8 py-8 radius-4 d-flex align-items-center">
-            <iconify-icon icon="ic:baseline-plus" class="icon text-xl line-height-1"></iconify-icon>
-            Add New Schedule
-        </a>
-    </div>
-
     <div class="row gy-4">
         <div class="col-xl-8">
             <div class="card basic-data-table">
-                <div class="card-body">
+                <div class="card-body" style="padding: 0 !important;">
+                    <a href="{{ route('service-schedules.create') }}" class="text-primary-light text-xxl fw-bold" style="padding: 22px 28px;">
+                        Schedule New Service
+                    </a>
                     <table class="table bordered-table mb-0" id="dataTable" data-page-length='10'>
                         <thead>
                         <tr>
                             <th scope="col">System ID</th>
-                            <th scope="col">Scheduled Date</th>
-                            <th scope="col">Scheduled Time</th>
+                            <th scope="col" style="width: 200px">Scheduled Date</th>
+                            <th scope="col" style="width: 200px">Scheduled Time</th>
                             <th scope="col">Service Type</th>
                             <th scope="col">Status</th>
-                            <th scope="col">Assigned Technician</th>
-                            <th scope="col">Actions</th>
+                            <th scope="col" style="width: 220px">Assigned Technician</th>
+                            <th scope="col" style="width: 150px">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -31,7 +26,7 @@
                             <tr>
                                 <td>
                                     {{-- Link to system show page --}}
-                                    <a href="{{ route('system.show', $schedule->system->id) }}" class="text-primary-600 fw-medium">
+                                    <a href="{{ route('system.show', $schedule->system->id) }}">
                                         {{ $schedule->system->system_id }}
                                     </a>
                                 </td>
@@ -39,17 +34,17 @@
                                 <td>{{ $schedule->scheduled_time }}</td>
                                 <td>{{ $schedule->service_type }}</td>
                                 <td>
-                            <span class="text-white px-16 py-4 radius-4 fw-medium text-sm @if($schedule->status == 'completed') bg-success @elseif($schedule->status == 'cancelled') bg-danger bg-success @elseif($schedule->status == 'scheduled') bg-info @else bg-warning @endif">
+                            <span class="text-white px-16 py-4 radius-12 fw-bold text-sm @if($schedule->status == 'completed') bg-success @elseif($schedule->status == 'cancelled') bg-danger bg-success @elseif($schedule->status == 'scheduled') bg-info @else bg-warning @endif">
                                 {{ ucfirst($schedule->status) }}
                             </span>
                                 </td>
                                 <td>{{ $schedule->assigned_technician ?? 'N/A' }}</td>
                                 <td>
                                     <div class="d-flex align-items-center gap-3">
-                                        <a href="{{ route('service-schedules.edit', $schedule->id) }}" class="w-32-px h-32-px bg-success-focus text-success-main rounded-circle d-inline-flex align-items-center justify-content-center">
+                                        <a href="{{ route('service-schedules.edit', $schedule->id) }}" class="strong text-xxl text-primary-light">
                                             <iconify-icon icon="lucide:edit"></iconify-icon>
                                         </a>
-                                        <a href="javascript:void(0)" class="w-32-px h-32-px bg-danger-focus text-danger-main rounded-circle d-inline-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#deleteScheduleModal{{ $schedule->id }}">
+                                        <a href="javascript:void(0)" class="strong text-xxl text-primary-light" data-bs-toggle="modal" data-bs-target="#deleteScheduleModal{{ $schedule->id }}">
                                             <iconify-icon icon="lucide:trash-2"></iconify-icon>
                                         </a>
                                     </div>
@@ -86,36 +81,73 @@
         {{-- Right Column: Upcoming Jobs --}}
         <div class="col-xl-4">
             <div class="card h-100">
-                <div class="card-header">
+                <div class="card-header" style="border-bottom: 0; padding-bottom: 40px;">
                     <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
-                        <h6 class="mb-2 fw-bold text-lg mb-0">Upcoming Jobs</h6>
+                        <h6 class="fw-bold text-lg mb-0">Upcoming Jobs</h6>
                     </div>
                 </div>
-                <div class="card-body p-4">
-                    <div class="table-responsive scroll-sm">
-                        <table class="table bordered-table mb-0">
-                            <tbody>
-                            @forelse ($upcomingSchedules as $upcoming)
-                                <tr>
-                                    <td>
-                                        {{-- Link to system show page for details --}}
-                                        <a href="{{ route('system.show', $upcoming->system->id) }}" class="text-primary-600 fw-medium">{{ $upcoming->system->system_id }}</a>
-                                        <p class="text-sm text-secondary-light mb-0">{{ $upcoming->service_type }}</p>
-                                    </td>
-                                    <td>
-                                        <p class="text-sm text-secondary-light mb-0">{{ $upcoming->scheduled_date->format('M d, Y') }}</p>
-                                    </td>
-                                    <td>
-                                        <span class="text-white px-8 radius-4 fw-medium text-sm  bg-secondary ">{{ $upcoming->scheduled_time }}</span>
-                                    </td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="3" class="text-center">No upcoming jobs.</td>
-                                </tr>
-                            @endforelse
-                            </tbody>
-                        </table>
+                <div class="card-body p-8">
+                    <div class="upcoming-jobs-list">
+                        @php
+                            $groupedSchedules = $upcomingSchedules->groupBy(function($schedule) {
+                                return $schedule->scheduled_date->format('Y-m-d');
+                            });
+                        @endphp
+                        
+                        @forelse ($groupedSchedules as $date => $schedules)
+                            <div class="date-group mb-4">
+                                <div class="date-header">
+                                    <h6 class="date-title">
+                                        @php
+                                            $dateCarbon = \Carbon\Carbon::parse($date);
+                                            $now = \Carbon\Carbon::now();
+                                            
+                                            if ($dateCarbon->isToday()) {
+                                                $dayLabel = 'Today';
+                                            } elseif ($dateCarbon->isTomorrow()) {
+                                                $dayLabel = 'Tomorrow';
+                                            } elseif ($dateCarbon->isCurrentWeek()) {
+                                                $dayLabel = $dateCarbon->format('l'); // Day name like Monday, Tuesday
+                                            } elseif ($dateCarbon->isNextWeek()) {
+                                                $dayLabel = 'Next ' . $dateCarbon->format('l');
+                                            } elseif ($dateCarbon->isCurrentMonth()) {
+                                                $dayLabel = $dateCarbon->format('l');
+                                            } elseif ($dateCarbon->isNextMonth()) {
+                                                $dayLabel = 'Next Month';
+                                            } else {
+                                                $dayLabel = $dateCarbon->format('l');
+                                            }
+                                        @endphp
+                                        {{ $dayLabel }} - {{ $dateCarbon->format('F j, Y') }}
+                                    </h6>
+                                </div>
+                                
+                                @foreach ($schedules as $upcoming)
+                                <div class="job-card {{ !$loop->last ? 'border-bottom' : '' }}">
+                                    <div class="job-info">
+                                        <div class="job-header">
+                                            <h6 class="customer-name">{{ $upcoming->system->customer_name }}</h6>
+                                            <span class="job-time">{{ \Carbon\Carbon::parse($upcoming->scheduled_time)->format('g:i A') }}</span>
+                                        </div>
+                                        <div class="job-details">
+                                            <p class="system-id">{{ $upcoming->system->system_id }}</p>
+                                            <p class="service-type">{{ $upcoming->service_type }}</p>
+                                            @if($upcoming->assigned_technician)
+                                                <p class="technician">{{ $upcoming->assigned_technician }}</p>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        @empty
+                            <div class="empty-state">
+                                <div class="empty-icon">
+                                    <iconify-icon icon="ph:calendar-x"></iconify-icon>
+                                </div>
+                                <p class="empty-text">No upcoming jobs scheduled</p>
+                            </div>
+                        @endforelse
                     </div>
                 </div>
             </div>

@@ -103,11 +103,11 @@
 
     {{--Recent Alerts--}}
     <div class="col-xxl-12">
-        <div class="card h-100" style="padding-bottom: 40px;">
+        <div class="card h-100" style="padding-bottom: 80px;">
             <div class="card-header">
                 <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
-                    <h6 class="mb-2 fw-bold text-lg mb-0">Recent Alerts</h6>
-                    <a href="javascript:void(0)" class="color-brand hover-text-primary d-flex align-items-center gap-1">
+                    <h6 class="fw-bold mb-0" style="font-size: 22px;">Recent Alerts</h6>
+                    <a href="javascript:void(0)" class="text-primary-light d-flex align-items-center gap-1">
                         View All
                         <iconify-icon icon="solar:alt-arrow-right-linear" class="icon"></iconify-icon>
                     </a>
@@ -118,7 +118,8 @@
                     <table class="table bordered-table mb-0">
                         <thead>
                         <tr>
-                            <th scope="col">SYSTEM ID</th>
+                            <th scope="col" style="
+  padding: 16px 16px 16px 42px !important;">SYSTEM ID</th>
                             <th scope="col">LOCATION</th>
                             <th scope="col">SYSTEM STATUS</th>
                             <th scope="col">STATUS UPDATE</th>
@@ -127,7 +128,8 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>
+                            <td style="
+  padding: 16px 16px 16px 42px !important;">
                                 <span class="text-secondary-light">BC-2025-0123</span>
                             </td>
                             <td>
@@ -146,7 +148,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td style="
+  padding: 16px 16px 16px 42px !important;">
                                 <span class="text-secondary-light">BC-2025-0123</span>
                             </td>
                             <td>
