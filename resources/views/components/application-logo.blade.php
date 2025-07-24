@@ -1,1 +1,1 @@
-<img src="{{ asset('assets/images/logo.png') }}" alt="Your Logo" class="h-10 w-auto">
+<img src="{{ asset('assets/images/logo.png') }}" alt="BrightCurrent Logo" style="height: 80px; width: auto;">
