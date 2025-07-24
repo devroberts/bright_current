@@ -184,6 +184,9 @@
                                                 <iconify-icon icon="lucide:download" class="icon"></iconify-icon>
                                             </a>
                                             <a href="javascript:void(0)" class="strong text-xxl text-primary-light">
+                                                <iconify-icon icon="solar:share-outline" class="icon"></iconify-icon>
+                                            </a>
+                                            <a href="javascript:void(0)" class="strong text-xxl text-primary-light">
                                                 <iconify-icon icon="lucide:trash" class="icon"></iconify-icon>
                                             </a>
                                         </div>
@@ -209,6 +212,9 @@
                                         <div class="d-flex align-items-center gap-2">
                                             <a href="javascript:void(0)" class="strong text-xxl">
                                                 <iconify-icon icon="lucide:download" class="icon"></iconify-icon>
+                                            </a>
+                                            <a href="javascript:void(0)" class="strong text-xxl text-primary-light">
+                                                <iconify-icon icon="solar:share-outline" class="icon"></iconify-icon>
                                             </a>
                                             <a href="javascript:void(0)" class="strong text-xxl">
                                                 <iconify-icon icon="lucide:trash" class="icon"></iconify-icon>
@@ -236,6 +242,9 @@
                                         <div class="d-flex align-items-center gap-2">
                                             <a href="javascript:void(0)" class="strong text-xxl text-primary-light">
                                                 <iconify-icon icon="lucide:download" class="icon"></iconify-icon>
+                                            </a>
+                                            <a href="javascript:void(0)" class="strong text-xxl text-primary-light">
+                                                <iconify-icon icon="solar:share-outline" class="icon"></iconify-icon>
                                             </a>
                                             <a href="javascript:void(0)" class="strong text-xxl text-primary-light">
                                                 <iconify-icon icon="lucide:trash" class="icon"></iconify-icon>

@@ -6508,6 +6508,17 @@ html[data-theme=dark] .bg-warning-light-two {
   gap: clamp(1.5rem, -12.75rem + 19vw, 6.25rem);
 }
 
+.empty-state {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 12px;
+}
+
+.empty-text {
+  margin: 0 !important;
+}
+
 /* === spacing css end === */
 /* === spacing css start === */
 .radius-2 {

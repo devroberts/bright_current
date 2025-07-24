@@ -146,9 +146,9 @@
                             </div>
                         @empty
                             <div class="empty-state">
-                                <div class="empty-icon">
+                                <span class="strong text-xxl text-primary-light">
                                     <iconify-icon icon="ph:calendar-x"></iconify-icon>
-                                </div>
+                                </span>
                                 <p class="empty-text">No upcoming jobs scheduled</p>
                             </div>
                         @endforelse

@@ -5,6 +5,12 @@
 @section('page-title') System List @endsection
 
 @section('content')
+    <div class="page-header d-flex flex-wrap align-items-center justify-content-end gap-3 mb-24">
+        <a href="{{ route('system.create') }}" class="btn bg-dark text-light text-sm btn-sm px-8 py-8 radius-4 d-flex align-items-center">
+            <iconify-icon icon="ic:baseline-plus" class="icon text-xl line-height-1"></iconify-icon>
+            Add New System
+        </a>
+    </div>
 
     <div class="row gy-4">
         <div class="col-12">
