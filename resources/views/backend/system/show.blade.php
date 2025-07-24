@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 @section('title') {{'System Details'}} @endsection
 
-@section('breadcrumb') System / System Details @endsection
+@section('breadcrumb') Pages / System @endsection
 @section('page-title') System Details @endsection
 
 @section('content')
@@ -86,94 +86,86 @@
         </div>
 
         {{-- Alert History --}}
-        <div class="col-xxl-12 col-xl-12"> {{-- Using col-xxl-6 to make it share row with Service Schedules on larger screens --}}
-            <div class="card h-100">
-                <div class="card-header">
-                    <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
+        <div class="col-xxl-12 col-xl-12">
+            <div class="card basic-data-table">
+                <div class="card-body" style="padding: 0 !important;">
+                    <div class="d-flex align-items-center justify-content-between" style="padding: 22px 28px; border-bottom: 1px solid #e0e5f2;">
                         <h6 class="fw-bold text-lg mb-0">Alert History</h6>
                         <a href="{{ route('alert.index', ['system_keyword' => $system->system_id]) }}" class="btn-text text-primary-600">View All</a>
                     </div>
-                </div>
-                <div class="card-body" style="padding: 0 !important;">
-                    <div class="table-responsive scroll-sm">
-                        <table class="table bordered-table mb-0">
-                            <thead>
+                    <table class="table bordered-table mb-0" id="alertsTable" data-page-length='5'>
+                        <thead>
+                        <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Severity</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @forelse($alerts as $alert)
                             <tr>
-                                <th>Date</th>
-                                <th>Severity</th>
-                                <th>Type</th>
-                                <th>Status</th>
+                                <td>{{ $alert->created_at->format('M d, Y H:i A') }}</td>
+                                <td>
+                                    <span class="text-white px-16 py-4 radius-12 fw-bold text-sm @if($alert->severity == 'critical') bg-danger @elseif($alert->severity == 'warning') bg-warning @else bg-info @endif">
+                                        {{ ucfirst($alert->severity) }}
+                                    </span>
+                                </td>
+                                <td>{{ $alert->alert_type }}</td>
+                                <td>
+                                    <span class="text-white px-16 py-4 radius-12 fw-bold text-sm @if($alert->status == 'resolved') bg-success @else bg-secondary @endif">
+                                        {{ ucfirst($alert->status) }}
+                                    </span>
+                                </td>
                             </tr>
-                            </thead>
-                            <tbody>
-                            @forelse($alerts as $alert)
-                                <tr>
-                                    <td>{{ $alert->created_at->format('M d, Y H:i A') }}</td>
-                                    <td>
-                                        <span class="badge @if($alert->severity == 'critical') bg-danger-500 @elseif($alert->severity == 'warning') bg-warning-500 @else bg-info-500 @endif">
-                                            {{ ucfirst($alert->severity) }}
-                                        </span>
-                                    </td>
-                                    <td>{{ $alert->alert_type }}</td>
-                                    <td>
-                                        <span class="badge @if($alert->status == 'resolved') bg-success-500 @else bg-secondary-500 @endif">
-                                            {{ ucfirst($alert->status) }}
-                                        </span>
-                                    </td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="4" class="text-center">No alerts found for this system.</td>
-                                </tr>
-                            @endforelse
-                            </tbody>
-                        </table>
-                    </div>
+                        @empty
+                            <tr>
+                                <td colspan="4" class="text-center">No alerts found for this system.</td>
+                            </tr>
+                        @endforelse
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
 
-        {{-- Service Schedules (formerly Repair History) --}}
-        <div class="col-xxl-12 col-xl-12"> {{-- Using col-xxl-6 to make it share row with Alert History on larger screens --}}
-            <div class="card h-100">
-                <div class="card-header">
-                    <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
-                        <h6 class="mb-2 fw-bold text-lg mb-0">Service Schedules</h6>
+        {{-- Service Schedules --}}
+        <div class="col-xxl-12 col-xl-12">
+            <div class="card basic-data-table">
+                <div class="card-body" style="padding: 0 !important">
+                    <div class="d-flex align-items-center justify-content-between" style="padding: 22px 28px; border-bottom: 1px solid #e0e5f2;">
+                        <h6 class="fw-bold text-lg mb-0">Service Schedules</h6>
                         {{-- Assuming a route for all service schedules, or to create a new one for this system --}}
                         {{-- <a href="#" class="btn-text text-primary-600">View All</a> --}}
                     </div>
-                </div>
-                <div class="card-body" style="padding: 0 !important">
-                    <div class="table-responsive scroll-sm">
-                        <table class="table bordered-table mb-0">
-                            <thead>
+                    <table class="table bordered-table mb-0" id="serviceSchedulesTable" data-page-length='5'>
+                        <thead>
+                        <tr>
+                            <th scope="col">Scheduled Date</th>
+                            <th scope="col">Service Type</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Assigned Tech</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @forelse($serviceSchedules as $schedule)
                             <tr>
-                                <th>Scheduled Date</th>
-                                <th>Service Type</th>
-                                <th>Status</th>
-                                <th>Assigned Tech</th>
+                                <td>{{ $schedule->scheduled_date->format('M d, Y') }}</td>
+                                <td>{{ $schedule->service_type }}</td>
+                                <td>
+                                    <span class="text-white px-16 py-4 radius-12 fw-bold text-sm @if($schedule->status == 'completed') bg-success @elseif($schedule->status == 'cancelled') bg-danger @else bg-secondary @endif">
+                                        {{ ucfirst($schedule->status) }}
+                                    </span>
+                                </td>
+                                <td>{{ $schedule->assigned_technician ?? 'N/A' }}</td>
                             </tr>
-                            </thead>
-                            <tbody>
-                            @forelse($serviceSchedules as $schedule)
-                                <tr>
-                                    <td>{{ $schedule->scheduled_date->format('M d, Y') }}</td>
-                                    <td>{{ $schedule->service_type }}</td>
-                                    <td>
-                                        <span class="badge @if($schedule->status == 'completed') bg-success-500 @elseif($schedule->status == 'cancelled') bg-danger-500 @else bg-secondary-500 @endif">
-                                            {{ ucfirst($schedule->status) }}
-                                        </span>
-                                    </td>
-                                    <td>{{ $schedule->assigned_technician ?? 'N/A' }}</td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="4" class="text-center">No service schedules found for this system.</td>
-                                </tr>
-                            @endforelse
-                            </tbody>
-                        </table>
-                    </div>
+                        @empty
+                            <tr>
+                                <td colspan="4" class="text-center">No service schedules found for this system.</td>
+                            </tr>
+                        @endforelse
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -243,5 +235,48 @@
 
         var chartProduction = new ApexCharts(document.querySelector("#productionDataChart"), optionsProduction);
         chartProduction.render();
+
+        // Initialize DataTables for both tables
+        $(document).ready(function() {
+            $('#alertsTable').DataTable({
+                scrollX: true,
+                responsive: true,
+                ordering: true,
+                searching: true,
+                pageLength: 5,
+                lengthMenu: [[5, 10, 25, 50], [5, 10, 25, 50]],
+                language: {
+                    search: "Search alerts:",
+                    lengthMenu: "Show _MENU_ alerts",
+                    info: "Showing _START_ to _END_ of _TOTAL_ alerts",
+                    paginate: {
+                        first: "First",
+                        last: "Last",
+                        next: "Next",
+                        previous: "Previous"
+                    }
+                }
+            });
+
+            $('#serviceSchedulesTable').DataTable({
+                scrollX: true,
+                responsive: true,
+                ordering: true,
+                searching: true,
+                pageLength: 5,
+                lengthMenu: [[5, 10, 25, 50], [5, 10, 25, 50]],
+                language: {
+                    search: "Search schedules:",
+                    lengthMenu: "Show _MENU_ schedules",
+                    info: "Showing _START_ to _END_ of _TOTAL_ schedules",
+                    paginate: {
+                        first: "First",
+                        last: "Last",
+                        next: "Next",
+                        previous: "Previous"
+                    }
+                }
+            });
+        });
     </script>
 @endpush

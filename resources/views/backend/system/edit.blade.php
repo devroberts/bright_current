@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 @section('title') {{'Edit System'}} @endsection
 
-@section('breadcrumb') System / Edit System @endsection
+@section('breadcrumb') Pages / System @endsection
 @section('page-title') Edit System @endsection
 
 @section('content')

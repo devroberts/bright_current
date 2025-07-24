@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 @section('title') {{'Alert List'}} @endsection
 
-@section('breadcrumb') Dashboard / Alerts @endsection
+@section('breadcrumb') Pages / Alerts @endsection
 @section('page-title') Alert List @endsection
 
 @section('content')
@@ -18,28 +18,32 @@
     <div class="card mb-24">
         <div class="card-body">
             <form action="{{ route('alert.index') }}" method="GET">
-                <div class="d-flex gap-20 justify-between">
-                    <!-- <label for="system_keyword" class="form-label">System ID/Customer</label> -->
-                    <input type="text" class="form-control" id="system_keyword" name="system_keyword" placeholder="Search Alerts" value="{{ request('system_keyword') }}" style="width: 226px;">
-                    <!-- <label for="date_from" class="form-label">Date From</label> -->
-                    <div class="d-flex gap-6 align-items-center" style="width: 100%;">
-                        <div class="d-flex gap-24 align-items-center">
-                            <span class="fw-bold" style="white-space: nowrap;">Date Range:</span>
-                            <div class="d-flex gap-8 align-items-center">
-                                <input type="date" class="form-control" id="date_from" name="date_from" placeholder="Start Date" value="{{ request('date_from') }}">
-                                <!-- <label for="date_to" class="form-label">Date To</label> -->
-                                <span class="fw-bold">-</span>
-                                <input type="date" class="form-control" id="date_to" name="date_to" placeholder="End Date" value="{{ request('date_to') }}">
-                            </div>
-                        </div>
-                        <!-- <label for="severity" class="form-label">Severity</label> -->
+                <div class="d-flex flex-wrap gap-3 align-items-center">
+                    <!-- Search Input -->
+                    <div style="min-width: 200px; flex: 0 0 auto;">
+                        <input type="text" class="form-control" id="system_keyword" name="system_keyword" placeholder="Search Alerts" value="{{ request('system_keyword') }}">
+                    </div>
+                    
+                    <!-- Date Range -->
+                    <div class="d-flex align-items-center gap-2" style="min-width: 320px; flex: 0 0 auto;">
+                        <span class="fw-bold text-nowrap">Date Range:</span>
+                        <input type="date" class="form-control" id="date_from" name="date_from" placeholder="Start Date" value="{{ request('date_from') }}">
+                        <span class="fw-bold">-</span>
+                        <input type="date" class="form-control" id="date_to" name="date_to" placeholder="End Date" value="{{ request('date_to') }}">
+                    </div>
+                    
+                    <!-- Severity Select -->
+                    <div style="min-width: 180px; flex: 0 0 auto;">
                         <select class="form-select" id="severity" name="severity">
                             <option value="">All Severities</option>
                             <option value="critical" {{ request('severity') == 'critical' ? 'selected' : '' }}>Critical</option>
                             <option value="warning" {{ request('severity') == 'warning' ? 'selected' : '' }}>Warning</option>
                             <option value="info" {{ request('severity') == 'info' ? 'selected' : '' }}>Info</option>
                         </select>
-                        <!-- <label for="status" class="form-label">Status</label> -->
+                    </div>
+                    
+                    <!-- Status Select -->
+                    <div style="min-width: 160px; flex: 0 0 auto;">
                         <select class="form-select" id="status" name="status">
                             <option value="">All Statuses</option>
                             <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>Pending</option>
@@ -47,13 +51,18 @@
                             <option value="in_progress" {{ request('status') == 'in_progress' ? 'selected' : '' }}>In Progress</option>
                             <option value="resolved" {{ request('status') == 'resolved' ? 'selected' : '' }}>Resolved</option>
                         </select>
-                        <button type="submit" class="btn btn-outline-secondary fw-bold text-primary-light px-24 py-12 radius-8 d-flex gap-2 align-items-center" style="white-space: nowrap;">
-                            <span class="text-lg">
-                                <iconify-icon icon="meteor-icons:filter"></iconify-icon>
-                            </span>
-                            <span>Apply Filter</span>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="d-flex gap-2" style="flex: 0 0 auto;">
+                        <button type="submit" class="btn btn-outline-secondary fw-bold text-primary-light px-16 py-12 radius-8 d-flex gap-2 align-items-center">
+                            <iconify-icon icon="meteor-icons:filter" class="text-lg"></iconify-icon>
+                            <span>Filter</span>
                         </button>
-                        <button onclick="location.href='{{ route('alert.index') }}'" class="btn btn-outline-secondary fw-bold text-primary-light px-24 py-12 radius-8">Reset</button>
+                        <button type="button" onclick="location.href='{{ route('alert.index') }}'" class="btn btn-outline-secondary fw-bold text-primary-light px-16 py-12 radius-8 d-flex gap-2 align-items-center">
+                            <iconify-icon icon="ri:refresh-line" class="text-lg"></iconify-icon>
+                            <span>Reset</span>
+                        </button>
                     </div>
                 </div>
             </form>

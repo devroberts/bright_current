@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 @section('title') {{'Alert Details'}} @endsection
 
-@section('breadcrumb') Alert / Alert Details @endsection
+@section('breadcrumb') Pages / Alerts @endsection
 @section('page-title') Alert Details @endsection
 
 @section('content')

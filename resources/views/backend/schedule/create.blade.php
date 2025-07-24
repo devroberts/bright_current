@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 @section('title') {{'Add Service Schedule'}} @endsection
 
-@section('breadcrumb') Schedules / Add Service Schedule @endsection
+@section('breadcrumb') Pages / Scheduling @endsection
 @section('page-title') Add Service Schedule @endsection
 
 @section('content')
